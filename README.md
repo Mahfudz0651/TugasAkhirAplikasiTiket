@@ -11,6 +11,9 @@ Use Case
 ![image](https://github.com/Mahfudz0651/TugasAkhirAplikasiTiket/assets/147080909/b4a573a8-30b8-4d81-a084-61805d54d9ed)
 
 Login : Pengguna dapat masuk ke dalam home page
+
 Home : Sebuah Page yang menampilkan jenis Transportasi yang bisa digunakan
+
 Pesan Tiket : Pengguna Bisa memesan Tiket melalui form yang ada di setiap transportasi untuk menginput Data
+
 Riwayat Perjalanan : Penggubna bisa melihat history pesanan yang perna dilakukan atau yang baru saja dilakukan
