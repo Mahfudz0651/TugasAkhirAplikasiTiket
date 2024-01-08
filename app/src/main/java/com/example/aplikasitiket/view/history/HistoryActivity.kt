@@ -1,14 +1,14 @@
 package com.example.aplikasitiket.view.history
 
+import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
+import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.aplikasitiket.R
 import com.example.aplikasitiket.model.ModelDatabase
+import com.example.aplikasitiket.viewmodel.HistoryViewModel
+
 
 class HistoryActivity : AppCompatActivity() {
     var modelDatabaseList: MutableList<ModelDatabase> = ArrayList()
@@ -19,47 +19,14 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
         setStatusBar()
-        setToolBar()
-        setInitLayout()
-        setViewModel()
-        setUpItemTouchHelper()
     }
-    private fun setToolBar() {
-        setSupportActionBar(toolbar)
-        if (supportActionBar != null) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowTitleEnabled(false)
+    private fun setStatusBar(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
-    }
+        if (Build.VERSION.SDK_INT >= 21){
 
-    private fun setInitLayout() {
-        historyAdapter = HistoryAdapter(modelDatabaseList)
-        rvHistory.setHasFixedSize(true)
-        rvHistory.setLayoutManager(LinearLayoutManager(this))
-        rvHistory.setAdapter(historyAdapter)
-    }
-
-    private fun setViewModel() {
-        val simpleCallback: ItemTouchHelper.SimpleCallback = object :
-        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START or ItemTouchHelper.END) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override  fun onSwiped(viewHolder: ViewHolder, direction: Int) {
-                val swipedPosition = viewHolder.adapterPosition
-                val modelDatabase = historyAdapter.setSwipeRemove(swipedPosition)
-                val uid = modelDatabase.uid
-                historyViewModel.deleteDataById(uid)
-                Toast.makeText(
-                    this@HistoryActivity,
-                    "Data Yang dipilih Berhasil Dihapus"
-                )
-            }
         }
     }
 }
