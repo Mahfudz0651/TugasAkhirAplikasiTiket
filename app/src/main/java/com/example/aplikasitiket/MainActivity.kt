@@ -1,4 +1,4 @@
-package com.example.aplikasitiket.view.main
+package com.example.aplikasitiket
 
 import android.app.Activity
 import android.graphics.Color
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.aplikasitiket.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
