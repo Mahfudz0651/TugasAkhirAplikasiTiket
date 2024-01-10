@@ -1,9 +1,22 @@
 <resources>
-    <string name="app_name">Pemesanan Tiket</string>
-    <string-array name="daftar_kota">
-        <item>Semarang (SRG)</item>
-        <item>Surabaya (SUB)</item>
-        <item>Bali (DPS)</item>
-        <item>Jakarta (HLP)</item>
-    </string-array>
+    <string name="app_name">OrangeBus</string>
+    <string name="nama">Nama Pelanggan</string>
+    <string name="NoTelp">No Telepon</string>
+    <string name="alamat">Alamat</string>
+    <string name="submit">Submit</string>
+    <string name="back_button">Kembali</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="next">Lanjut</string>
+    <string name="cancel">Batal</string>
+    <string name="sinarjaya">Sinar Jaya</string>
+    <string name="haryanto">Haryanto</string>
+    <string name="agramas">Agra Mas</string>
+    <string name="budiman">Budiman</string>
+    <string name="murnijaya">Murni Jaya</string>
+    <string name="order_summary">Ringkasan Order</string>
+    <string name="send">Send Order to Another App</string>
+    <string name="quantity">Jumlah</string>
+    <string name="flavor">Rasa</string>
+    <string name="subtotal_price">Subtotal : Rp %s</string>
+    <string name="total_price">Total %s</string>
 </resources>
