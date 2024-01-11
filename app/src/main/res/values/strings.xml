@@ -2,7 +2,7 @@
     <string name="app_name">OrangeBus</string>
     <string name="nama">Nama Pelanggan</string>
     <string name="NoTelp">No Telepon</string>
-    <string name="alamat">Alamat</string>
+    <string name="tujuan">Tujuan</string>
     <string name="submit">Submit</string>
     <string name="back_button">Kembali</string>
     <string name="confirm">Konfirmasi</string>
