@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
@@ -24,6 +25,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.aplikasitiket.theme.OrderViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.aplikasitiket.database.SumberData.Bus
 
 enum class PengelolaHalaman{
     Home,
@@ -91,7 +93,42 @@ fun AplikasiTiketApp(
                     })
 
                 }
+            composable(PengelolaHalaman.Formulir.name){
+                HalamanForm(
+                    onSubmitButtonCliked = {
+                        navController.navigate(PengelolaHalaman.Formulir.name)
+                    }
+                )
+            }
+            composable(route = PengelolaHalaman.Bus.name)   {
 
+                val context = LocalContext.current
+                HalamanSatu(
+                    pilihanBus = Bus.map {id ->
+                        context.resources.getString(id)
+                    },
+                    onSelectionChanged = {viewModel.setRasa(it)},
+                    onConfirmButtonCliked = {
+                        viewModel.setJumlah(it)
+                    },
+                    onNextButtonCliked = {
+                        navController.navigate(PengelolaHalaman.Summary.name)
+                    },
+                    onCancelButtonCliked = {
+                        cancelOrderAndNavigationToHome(
+                            viewModel,
+                            navController
+                        )
+                    })
+            }
+            composable(route = PengelolaHalaman.Summary.name){
+                HalamanDua(
+                    orderUIState = uiState,
+                    onCancelButtonCliked = {
+                        cancelOrderAndNavigateToBus(navController)
+                    },
+                    )
+            }
             }
         }
     }
